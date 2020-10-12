@@ -131,15 +131,11 @@ public class ReviewWindow extends UiPart<Stage> {
      * @param isCorrect
      */
     public void handleNextCard(int isCorrect) {
-        if (individualFlashcard.isCardFlipped()) {
-            String result = individualFlashcard.handleNextCard(isCorrect);
-            if (result.equals("exit")) {
-                handleExit();
-            } else {
-                progressBar.setProgress(Double.parseDouble(result));
-            }
+        String result = individualFlashcard.handleNextCard(isCorrect);
+        if (result.equals("exit")) {
+            handleExit();
         } else {
-            resultDisplay.setFeedbackToUser("Need to flip card before marking it as correct or wrong");
+            progressBar.setProgress(Double.parseDouble(result));
         }
     }
 

@@ -74,14 +74,6 @@ public class IndividualFlashcard extends UiPart<Region> {
     }
 
     /**
-     * Returns whether the current flashcard being reviewed has been flipped
-     * @return boolean
-     */
-    public boolean isCardFlipped() {
-        return this.flipped;
-    }
-
-    /**
      * After marking the card as correct/wrong depending on user input,
      * show the next card. If the card is wrong, add card to the back of
      * the list to be reviewed again later.
