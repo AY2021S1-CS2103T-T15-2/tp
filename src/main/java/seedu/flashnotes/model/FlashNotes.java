@@ -20,6 +20,7 @@ public class FlashNotes implements ReadOnlyFlashNotes {
 
     private final UniqueFlashcardList flashcards;
     private final UniqueDeckList decks;
+    private boolean isFlipped;
     private boolean isInDeck;
     private String currentDeckName;
 
@@ -33,6 +34,7 @@ public class FlashNotes implements ReadOnlyFlashNotes {
     {
         flashcards = new UniqueFlashcardList();
         decks = new UniqueDeckList();
+        isFlipped = false;
         isInDeck = false;
         currentDeckName = null;
     }
@@ -243,6 +245,17 @@ public class FlashNotes implements ReadOnlyFlashNotes {
     public UniqueDeckList getUniqueDeckList() {
         return decks;
     }
+
+    /// Review Mode methods
+
+    public void setIsFlippedTrue() {
+        isFlipped = true;
+    }
+
+    public void setIsFlippedFalse() {
+        isFlipped = false;
+    }
+
 
     //// util methods
 

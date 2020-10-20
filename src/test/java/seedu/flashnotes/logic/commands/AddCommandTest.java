@@ -230,6 +230,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public void setIsFlippedTrue() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setIsFlippedFalse() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateDeckPerformanceScore(Integer reviewScore, String deckName) {
             throw new AssertionError("This method should not be called.");
         }
