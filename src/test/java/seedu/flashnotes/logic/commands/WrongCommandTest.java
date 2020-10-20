@@ -9,17 +9,17 @@ import seedu.flashnotes.model.Model;
 import seedu.flashnotes.model.ModelManager;
 import seedu.flashnotes.model.UserPrefs;
 
-public class CorrectCommandTest {
+public class WrongCommandTest {
     private Model model;
     private Model expectedModel;
     @Test
-    public void execute_correct_command_success() {
+    public void execute_wrong_command_success() {
         model = new ModelManager(getTypicalFlashNotes(), new UserPrefs());
         expectedModel = new ModelManager(model.getFlashNotes(), new UserPrefs());
-        CommandResult expectedCommandResult = new CommandResult(CorrectCommand.MESSAGE_CORRECT_ACKNOWLEDGEMENT,
-                false, false, false, false, 2);
-        CorrectCommand correctCommand = new CorrectCommand();
-        assertEquals(correctCommand.execute(model), expectedCommandResult);
+        CommandResult expectedCommandResult = new CommandResult(WrongCommand.MESSAGE_WRONG_ACKNOWLEDGEMENT,
+                false, false, false, false, 1);
+        WrongCommand wrongCommand = new WrongCommand();
+        assertEquals(wrongCommand.execute(model), expectedCommandResult);
     }
 
 }
