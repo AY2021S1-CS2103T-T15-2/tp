@@ -274,16 +274,6 @@ public class ModelManager implements Model {
         return flashcardsToReview;
     }
 
-    @Override
-    public void setIsFlippedTrue() {
-        flashNotes.setIsFlippedTrue();
-    }
-
-    @Override
-    public void setIsFlippedFalse() {
-        flashNotes.setIsFlippedFalse();
-    }
-
     // =========== Util methods =============================================================
 
     @Override

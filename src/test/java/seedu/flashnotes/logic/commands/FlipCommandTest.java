@@ -17,10 +17,8 @@ public class FlipCommandTest {
     @Test
     public void execute_flip_success() {
         model = new ModelManager(getTypicalFlashNotes(), new UserPrefs());
-        expectedModel = new ModelManager(model.getFlashNotes(), new UserPrefs());
         CommandResult expectedCommandResult = new CommandResult(FlipCommand.MESSAGE_FLIP_ACKNOWLEDGEMENT,
                 false, false, false, true, 0);
-        expectedModel.setIsFlippedTrue();
         FlipCommand flipCommand = new FlipCommand();
         assertEquals(flipCommand.execute(model), expectedCommandResult);
     }
@@ -28,10 +26,8 @@ public class FlipCommandTest {
     @Test
     public void execute_double_flip() {
         model = new ModelManager(getTypicalFlashNotes(), new UserPrefs());
-        expectedModel = new ModelManager(model.getFlashNotes(), new UserPrefs());
         CommandResult expectedCommandResult = new CommandResult(FlipCommand.MESSAGE_FLIP_ACKNOWLEDGEMENT,
                 false, false, false, true, 0);
-        expectedModel.setIsFlippedTrue();
         FlipCommand flipCommand = new FlipCommand();
         CommandResult firstResult = flipCommand.execute(model);
         assertEquals(firstResult, expectedCommandResult);

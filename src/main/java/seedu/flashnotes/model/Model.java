@@ -151,10 +151,6 @@ public interface Model {
      */
     void updateFilteredFlashcardList(Predicate<Flashcard> predicate);
 
-    void setIsFlippedTrue();
-
-    void setIsFlippedFalse();
-
     /**
      * Shuffles the flashcards for the review session.
      */
