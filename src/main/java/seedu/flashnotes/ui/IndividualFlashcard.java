@@ -116,6 +116,7 @@ public class IndividualFlashcard extends UiPart<Region> {
      * @param isCorrect
      */
     public String handleNextCard(int isCorrect) {
+        assert(isCorrect > 0);
         if (isCorrect == 2) {
             this.count += 1;
         } else {

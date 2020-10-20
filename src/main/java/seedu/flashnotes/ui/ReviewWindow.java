@@ -160,6 +160,7 @@ public class ReviewWindow extends UiPart<Stage> {
      * @param isCorrect
      */
     public void handleNextCard(int isCorrect) {
+        assert(isCorrect > 0);
         if (individualFlashcard.isCardFlipped()) {
             String result = individualFlashcard.handleNextCard(isCorrect);
             if (result.equals("exit")) {
