@@ -52,7 +52,8 @@ Given below are my contributions to the project.
     into the `Question` class for FlashNotes application.
     * Standardized and updated some of the error messages to improve user experience.
     * Organized code and fixed bugs in Parsers, to ensure that the correct commands are allowed in the correct modes.
-    * Wrote many new testcases for major Parser class `FlashNotesParser`, and also for the new commands I implemented.
+    * Wrote new testcases for major Parser class `FlashNotesParser`, and also for the new commands I implemented. 
+    (Pull request: [1](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/138))
 
 * **Documentation**:
   * User Guide:
@@ -60,6 +61,7 @@ Given below are my contributions to the project.
     * Updated documentation for `find`, `deleteCard`.
     * Wrote documentation for the section "Understanding the 3 different modes".
     * Updated "Manual Testing" section with new features.
+    * Standardized formatting and fixed typos that could cause confusion for readers.
   * Developer Guide:
     * Add design considerations and explanation for the 3 different UIs available in FlashNotes v1.4.
     * Update documentation in "Architecture" section.
@@ -67,7 +69,8 @@ Given below are my contributions to the project.
     * Wrote documentation for implementation of Review mode.
     * Drew sequence diagram for `review` command execution, activity diagram for `setReviewLimit` command execution, 
     class diagram for UI and `CommandResult` classes, and activity diagram for a typical workflow in the review mode.
+    * Standardized formatting and fixed typos that could cause confusion for readers.
     
 
 * **Community**:
-    * Reviewed team mates' pull requests (example: https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/57)
+    * Reviewed team mates' pull requests (example: [1](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/57))

@@ -28,5 +28,21 @@
     "question" : "How much",
     "answer" : "300 apples",
     "tag" : "Math"
+  } ],
+  "decks" : [ {
+    "deckName" : "friends",
+    "resultStatistic" : "3.3"
+  }, {
+    "deckName" : "owesMoney",
+    "resultStatistic" : "-1.0"
+  }, {
+    "deckName" : "Time",
+    "resultStatistic" : "0"
+  }, {
+    "deckName" : "Place",
+    "resultStatistic" : "100"
+  }, {
+    "deckName" : "Math",
+    "resultStatistic" : "75"
   } ]
 }

@@ -36,7 +36,6 @@ activate Model
 Model -> FlashNotes : addDeck(Deck1)
 activate FlashNotes
 
-FlashNotes -> FlashNotes :addDeck(Deck1)
 FlashNotes --> Model :
 deactivate FlashNotes
 

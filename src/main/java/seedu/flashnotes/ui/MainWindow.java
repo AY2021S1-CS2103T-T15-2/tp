@@ -6,6 +6,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import seedu.flashnotes.commons.core.GuiSettings;
 import seedu.flashnotes.logic.Logic;
+import seedu.flashnotes.logic.commands.CommandResult;
 
 
 /**
@@ -32,7 +33,7 @@ public class MainWindow extends UiPart<Stage> {
         this.logic = logic;
 
         //initialize the deck list root node as the primary scene
-        rootNode = new DeckCardListRoot(primaryStage, logic);
+        rootNode = new DeckCardListRoot(this, logic);
 
         Region root = rootNode.getFxmlLoader().getRoot();
         primaryStage.setScene(new Scene(root));
@@ -66,6 +67,22 @@ public class MainWindow extends UiPart<Stage> {
 
     void show() {
         primaryStage.show();
+    }
+
+    /**
+     * Sets the new root node object for the MainWindow.
+     *
+     * @param rootNode The new root node to be rendered.
+     * @param commandResult Command Result which contains the right message for the user.
+     */
+    public void setRootNode(RootNode rootNode, CommandResult commandResult) {
+        this.rootNode = rootNode;
+        Region root = rootNode.getFxmlLoader().getRoot();
+        primaryStage.getScene().setRoot(root);
+        primaryStage.show();
+
+        this.rootNode.fillInnerParts();
+        this.rootNode.setFeedbackToUser(commandResult.getFeedbackToUser());
     }
 
     /**

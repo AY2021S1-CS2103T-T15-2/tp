@@ -1,8 +1,8 @@
 {
   "flashcards": [ {
-    "question": " ",
-    "answer": "",
-    "tag": ""
+    "question": "What is an invalid Deck?",
+    "answer": "One containing an incorrect statistical value.",
+    "tag": "valid tag"
   }, {
     "question": "valid question",
     "answer": "valid answer",
@@ -10,6 +10,6 @@
   } ],
   "decks": [ {
     "deckName": "valid tag",
-    "resultStatistic": "-1.0"
+    "resultStatistic": "null"
   } ]
 }

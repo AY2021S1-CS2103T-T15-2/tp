@@ -112,7 +112,12 @@ public class EditDeckNameCommandTest {
         }
 
         @Override
-        public ObservableList<Flashcard> addFlashcardToReview(Flashcard flashcard) {
+        public void addFlashcardToReview() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Flashcard> getModifiedFlashcardsToReview() {
             throw new AssertionError("This method should not be called.");
         }
 

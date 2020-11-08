@@ -23,7 +23,7 @@ public class AddDeckCommand extends Command {
     private final Deck toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Flashcard}
+     * Creates an AddDeckCommand to add the specified {@code Deck}
      */
     public AddDeckCommand(Deck cardDeck) {
         requireNonNull(cardDeck);

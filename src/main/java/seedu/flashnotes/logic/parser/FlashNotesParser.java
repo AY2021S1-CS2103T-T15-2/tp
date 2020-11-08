@@ -104,7 +104,7 @@ public class FlashNotesParser {
 
         if (!isInDeck) {
             assert !isReviewMode : "Program should not be in review mode";
-            return parseCommandInHomeMode(commandWord, arguments);
+            return parseCommandInMainMode(commandWord, arguments);
         } else {
             assert !isReviewMode : "Program should not be in review mode";
             return parseCommandInCardMode(commandWord, arguments, deckName);
@@ -235,7 +235,7 @@ public class FlashNotesParser {
         }
     }
 
-    private Command parseCommandInHomeMode(
+    private Command parseCommandInMainMode(
             String commandWord, String arguments) throws ParseException {
         switch (commandWord) {
         case AddCardCommand.COMMAND_WORD:
@@ -249,7 +249,7 @@ public class FlashNotesParser {
         case EndReviewCommand.COMMAND_WORD:
         case HomeCommand.COMMAND_WORD:
         case ListCommand.COMMAND_WORD:
-            return parseInvalidCommandInHomeMode(commandWord);
+            return parseInvalidCommandInMainMode(commandWord);
 
         case AddDeckCommand.COMMAND_WORD:
             return new AddDeckCommandParser().parse(arguments);
@@ -312,7 +312,7 @@ public class FlashNotesParser {
         }
     }
 
-    private Command parseInvalidCommandInHomeMode(
+    private Command parseInvalidCommandInMainMode(
             String commandWord) throws ParseException {
 
         switch (commandWord) {

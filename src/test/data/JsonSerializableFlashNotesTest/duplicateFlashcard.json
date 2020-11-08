@@ -7,5 +7,9 @@
     "question": "What can you do today that you were not capable of a year ago?",
     "answer": "binge eat",
     "tag": "friends"
+  } ],
+  "decks": [ {
+    "deckName": "friends",
+    "resultStatistic": "-1.0"
   } ]
 }

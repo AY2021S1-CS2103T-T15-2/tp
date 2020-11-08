@@ -16,6 +16,7 @@ public class WrongCommand extends Command {
     public CommandResult execute(Model model) {
         if (model.getIsFlashcardFlipped()) {
             model.updateFlashcardBeingReviewed(1);
+            model.addFlashcardToReview();
         } else {
             return new CommandResult(MESSAGE_WRONG_ERROR, false, false,
                     true, false, 0);

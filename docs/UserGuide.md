@@ -20,24 +20,25 @@ To get started, head over to the [Quick Start](#quick-start) section.
 
 To see the summary of all our commands, go to the [Command Summary](#command-summary) section.
 
-Here's the Table of Contents(Under Details) for a brief overview of our User Guide, or for you to quickly access other sections of our User Guide.
+Here's the Table of Contents for a brief overview of our User Guide, or for you to quickly access other sections of our User Guide.
 
 --------------------------------------------------------------------------------------------------------------------
 
-<details markdown="block">
-- Table of Contents
+
+* Table of Contents
 {:toc}
-</details>
+
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Glossary
 
-* Flashcard: A flashcard shows a question and the answer to the question.
-* Decks: A deck will contain flashcards.
-* Index: The number at the start of each deck or flashcard.
-* Review: A mode where only the question of the flashcard is shown; the answer will be hidden from you.
-* Prefix: A reserved word that needs to be placed before your inputs to indicate the start of your input.
+* **Flashcard**: A flashcard shows a question and the answer to the question.
+* **Decks**: A deck will contain flashcards.
+* **Index**: The number at the start of each deck or flashcard.
+* **Review**: A mode where only the question of the flashcard is shown; the answer will be hidden from you.
+* **Prefix**: A reserved word that needs to be placed before your inputs to indicate the start of your input.
 * :information_source:: Additional info
 * :warning:: Warning
 
@@ -86,6 +87,8 @@ Users can:
 <br>
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -107,7 +110,6 @@ Users can:
 
 1. Double-click the file to start the app. A view similar to the one below should appear in a few seconds. Note how FlashNotes contains some sample data after initial launch.<br>
    ![Figure 2: Initial View with GUI Details](images/UG_GUIDetails.png)<br>
-   _Figure 2A: Initial View of FlashNotes with GUI component labels._
    
    * **Command Box**: Where you input commands for FlashNotes.
    
@@ -128,7 +130,8 @@ Users can:
    * **`enterDeck`**`Singapore `: Lists all cards inside the deck 'Singapore'.
 
    * **`exit`** : Exits the app.
-
+<br><br>
+   
 1. After executing each command, a success or failure message will be displayed in the **Result Box**. This will let you know if you have successfully executed the relevant commands or not. Given that you have provided the correct command prefixes, it can even provide additional information on why your command has failed.  <br>
 
 1. Refer to the **Features** section below for the details of each command.
@@ -142,13 +145,13 @@ Users can:
    Our provided sample data is not accurate nor necessary to the application. As such, you can easily delete the sample data in the following way:
    
    * Usage of the `clear` command.<br>
-     Clears all flashcard and deck data currently in FlashNotes. Refer under **Main Mode Features** for further details about the command.
+     Clears all flashcard and deck data currently in FlashNotes. Refer to [Main Mode Features](#main-mode-features) for further details about the command.
      
 </div>
 
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-after: always;"></div>
 ## Explanation of Command Formats used in features
 
 <div markdown="block" class="alert alert-info">
@@ -156,7 +159,7 @@ Users can:
 **:information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the inputs to be supplied by you.<br>
-  e.g. in `addCard q/QUESTION`, `QUESTION` is an input which can be used as `add q/What is the question?`.
+  e.g. in `addCard q/QUESTION a/ANSWER`, `QUESTION` is an input which can be `What is the question?`.
 
 * Inputs can be in any order.<br>
   e.g. if the command specifies `q/QUESTION a/ANSWER`, `a/ANSWER q/QUESTION` is also acceptable.
@@ -197,10 +200,10 @@ Outcome expected:
 :warning: Things to note:
 
 * The deck name entered is **case-sensitive**. e.g. `GET1025` will not match `get1025`
-* only **full phrases** will be matched with the relevant decks e.g. `GE` will not match `GET1025`
+* Only **full phrases** will be matched with the relevant decks e.g. `GE` will not match `GET1025`
 
 </div>
-
+<div style="page-break-after: always;"></div>
 ### Create a new Deck : `addDeck`
 
 Creates a new empty deck and adds to the list of decks displayed.
@@ -224,16 +227,16 @@ Outcome expected:
 
 :warning: Things to note:
 
-* The deck name is case-sensitive. e.g. future search queries of `GET1025` will not match `get1025`
-* If there is a deck that has the same existing case-sensitive name, the deck will not be created because it would be considered a duplicate deck by the system.
-* There is a 40 character limit for DECKNAME.
-* Reserved names (such as `list`) can't be used as DECKNAME.
+* The deck name is **case-sensitive**. e.g. `GET1025` will not match `get1025`
+* If there is a deck that has the **same existing** case-sensitive name, the deck will not be created because it would be considered a duplicate deck by the system.
+* There is a **40 character limit** for `DECKNAME`.
+* Reserved names (such as `list`) can't be used as `DECKNAME`.
 * If multiple name prefixes are in the command text, only the last one would be selected.
-* If you are in card mode, you need to navigate back to the home screen via the Home command before adding new deck.
+* If you are in *Card* mode, you need to navigate back to the *Main* Mode via the Home command before adding new deck.
 
 </div>
 
-
+<div style="page-break-after: always;"></div>
 ### Rename a new Deck : `editDeckName`
 
 Edit a deck name and the tags of all corresponding cards in the deck. 
@@ -259,15 +262,14 @@ Outcome Expected:
 :warning: Things to note:
 
 * Edits the deck at the specified `INDEX`
-* The index refers to the index number shown in the currently displayed list of flashcards
+* The index refers to the index number shown in the currently displayed list of decks.
 * The index **must be a positive integer** 1, 2, 3, …​
-* The `NEWDECKNAME` is case-sensitive
+* The `NEWDECKNAME` is case-sensitive.
 * The `NEWDECKNAME` should not be a name that already exists as a deck.
 
 </div>
 
-
-
+<div style="page-break-after: always;"></div>
 ### Delete a new Deck : `deleteDeck`
 
 Deletes the deck and all the associated cards in your specified deck.
@@ -293,11 +295,11 @@ Outcome Expected:
 :warning: Things to note:
 
 * Deletes the deck at the specified `INDEX`
-* The index refers to the index number shown in the currently displayed list of flashcards
+* The index refers to the index number shown in the currently displayed list of decks.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 </div>
-
+<div style="page-break-after: always;"></div>
 ### List all flashcards : `listAll`
 
 Shows a list of all flashcards, and enters card mode.
@@ -305,7 +307,7 @@ Shows a list of all flashcards, and enters card mode.
 Format: `listAll`
 
 Outcome Expected:
-1. Enter the List Command into the command bar as per the example.
+1. Enter the `listAll` Command into the command bar as per the example.
 ![ListCommand](images/list_init.png)
 
 1. You should see the newly rendered list of flashcards. The list contains all flashcards currently stored in FlashNotes irrespective of the deck.
@@ -320,7 +322,7 @@ Outcome Expected:
 * Note that starting a review in this screen will not attribute the review results to any deck. It will not be stored at the end of the review session.
 
 </div>
-
+<div style="page-break-after: always;"></div>
 ### Set card limit for review session : `setReviewLimit`
 
 Sets the maximum number of cards that can be reviewed in a single review session.
@@ -341,19 +343,17 @@ Examples:
 
 
 Outcome Expected:
-1. Enter the `setReviewLimit` command with the `REVIEW_LIMIT` you want into the command box as shown. 
+1. Enter the `setReviewLimit` command with the review limit you want into the command box as shown. 
 ![Set Review Limit Before Main](images/setReviewLimit3Before_Main.png)
 
 1. When successful, the following success message will be displayed.
 ![Set Review Limit After Main](images/setReviewLimit3After_Main.png)
 
-1. You can check that the review_limit is indeed 3 by entering the commands
-`enterDeck Singapore` (which contains 4 flashcards in total) and type `review`.
-(3 flashcards will be chosen randomly from the deck of 4 cards) Use the `f` and `c` commands to review the flashcards. 
-After reviewing the 3rd flashcard, you should have reached the end of the review session as shown below.
+1. You can check that the review limit is indeed 3 by entering the commands `enterDeck Singapore` (which contains 4 flashcards in total) and type `review`. (3 flashcards will be chosen randomly from the deck of 4 cards) Use the `f` and `c` commands to review the flashcards. After reviewing the 3rd flashcard, you should have reached the end of the review session as shown below.
+<br><br>
 ![Set Review Limit After](images/setReviewLimit3ReviewAfter.png)
 
-1. When an invalid `REVIEW_LIMIT` is entered, the following error message will be displayed.
+1. When an invalid review limit is entered, the following error message will be displayed.
 ![Set Review Limit Error Main](images/SetReviewLimitError_Main.png)
 
 
@@ -361,19 +361,19 @@ After reviewing the 3rd flashcard, you should have reached the end of the review
 
 :warning: Things to note:
 
-* `REVIEW_LIMIT` can be an integer greater than 0 and smaller than 2147483648. The program doesn't handle any
+* The review limit can be an **integer greater than 0 and smaller than 2147483648**. The program doesn't handle any
 review limit greater than 2147483647.
-* `REVIEW_LIMIT` can be the string `all`. (case insensitive)
-* Note that when the `REVIEW_LIMIT` is set to `all`, the `REVIEW_LIMIT` is maximum number of cards you can review.
+* The review limit can be the string `all`. (case-insensitive)
+* Note that when the review limit is set to `all`, the review limit is maximum number of cards you can review.
 (Which is 2147483647 cards)
-* This review card limit applies to all decks once it is set. 
-* This review card limit is remembered by the program. (You do not have to set the card limit 
+* This review card limit **applies to all decks** once it is set. 
+* This review card limit is **remembered by the program**. (You do not have to set the card limit 
 again after he/she closes and reopens the application)
 * This command be used in both the *Main* and *Card* modes.
 
 </div>
 
-
+<div style="page-break-after: always;"></div>
 ### Check card limit for review session : `checkReviewLimit`
 
 Checks the maximum number of cards that can be reviewed in a single review session.
@@ -395,8 +395,8 @@ Outcome Expected:
 
 :warning: Things to note:
 
-* This review card limit applies to all decks. 
-* This review card limit is remembered by the program. (You do not have to set the card limit 
+* This review card limit **applies to all decks**. 
+* This review card limit is **remembered by the program**. (You do not have to set the card limit 
 again after he/she closes and reopens the application)
 * This command be used in both the *Main* and *Card* modes.
 
@@ -437,7 +437,7 @@ Outcome Expected:
 
 :warning: Things to note:
 
-* All cards and decks will be cleared, including any revision history.
+* All cards and decks will be cleared.
 * No additional inputs should be added behind the clear command.
 * There is no undo command available in the system presently. Hence, the clear command is irreversible.
 </div>
@@ -450,7 +450,7 @@ Exits FlashNotes.
 Format: `exit`
 
 Outcome Expected:
-1. User enters `exit` command in **Home Mode**. <br>
+1. User enters `exit` command in *Main* Mode. <br>
 ![Exiting FlashNotes](images/UG_ExitCommand.png)
 
 1. FlashNotes closes and saves all current data.
@@ -459,7 +459,7 @@ Outcome Expected:
 
 :warning: Things to note:
 
-* `exit` can be activated from **Home Mode** and **Card Mode**, but not **Review Mode**.
+* `exit` can be activated from *Main* Mode and *Card* Mode, but not *Review* Mode.
 * No additional inputs should be added behind the `exit` command.
 
 </div>
@@ -468,12 +468,14 @@ Outcome Expected:
 
 FlashNotes saves its data into hard disk automatically after every command,  so there is no need to save its data manually.
 
-The data of FlashNotes is contained in the `flashnotes.json` file. This save file can be found in the `data` folder contained inside of the _home folder_ that you installed FlashNotes into.
+The data of FlashNotes is contained in the `flashnotes.json` file. This saved file can be found in the `data` folder contained inside of the folder that you installed FlashNotes into.
 
-For further details on how to transfer FlashNotes data, please refer to the **FAQ** section.
+For further details on how to transfer FlashNotes data, please refer to the [FAQ](#faq) section.
 
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Card Mode Features
 <div markdown="block" class="alert alert-info">
@@ -510,7 +512,7 @@ Outcome Expected:
 * There is a 140 character limit for QUESTION and ANSWER.
 
 </div>
-
+<div style="page-break-after: always;"></div>
 ### Editing a flashcard : `editCard`
 
 Edits an existing flashcard in the flashcard deck.
@@ -544,6 +546,7 @@ changed. <br>
 
 </div>
 
+<div style="page-break-after: always;"></div>
 ### Finding flashcards : `find`
 
 Finds flashcards which contain any of the given keywords in their respective questions. 
@@ -559,7 +562,7 @@ Examples:
 Outcome Expected:
 1. Enter the find Command into the command box as shown. 
 ![Find Before](images/FindCommandBefore.png)
-
+<br><br>
 1. When successful, the flashcard(s) with questions that contains the matching keywords will be displayed.
 ![Find After](images/FindCommandAfter.png)
 
@@ -568,8 +571,8 @@ Outcome Expected:
 :warning: Things to note:
 
 * The search is **case-insensitive**. e.g `test` will match `Test`
-* **Only full phrases will** be matched e.g. `Art` will not match `Artifact`
-* Find command only searches keywords from the questions, since the purpose of using flashcards is to self test.
+* **Only full phrases will be matched** e.g. `Art` will not match `Artifact`
+* Find command only **searches keywords from the questions**, since the purpose of using flashcards is to self test.
 * Flashcards matching at least one keyword will be returned. (e.g. `Conflict Resolution` will return `Handling Conflict`, `Resolution`)
 
 </div>
@@ -578,9 +581,20 @@ Outcome Expected:
 
 Lists all flashcards in the deck.
 
-Typically used after the `find` command when you want to see all cards in the deck again.
-
 format: `list`
+
+Outcome Expected:
+Shows all flashcards in the deck that the user is in.
+
+<div markdown="block" class="alert alert-warning">
+
+:warning: Things to note:
+
+* No additional inputs should be added behind the `list` command.
+* Typically used after the `find` command when you want to see all cards in the deck again.
+
+</div>
+
 
 ### Deleting a flashcard : `deleteCard`
 
@@ -620,16 +634,16 @@ Format: `home`
 
 Outcome Expected:
 1. Enter the Home Command into the command bar as per the example.
-![Home Mode](images/home_init.png)
+![Main Mode](images/home_init.png)
 
-1. You should now see the list of orange decks in the home screen.
-![Home Mode](images/home_success.png)
+1. You should now see the list of orange decks in the Main Mode.
+![Main Mode](images/home_success.png)
 
 <div markdown="block" class="alert alert-warning">
 
 :warning: Things to note:
 
-* It can only be activated from the card screen to navigate back to home.
+* It can only be activated from the *Card* mode to navigate back to *Main* Mode.
 * No additional inputs should be added behind the home command.
 
 </div>
@@ -655,16 +669,19 @@ review window is closed.
 
 :warning: Things to note:
 
-* This command is only valid in the **Card** mode.
-* The cards to be reviewed is determined by the list of cards currently displayed in the **Card** screen.
-Eg. If there were originally 10 cards in the deck, and you use the `find` command to search for specific cards. 
+* This command is only valid in the *Card* mode.
+* The cards to be reviewed is determined by the list of cards currently displayed in the *Card* mode.
+(Eg. If there were originally 10 cards in the deck, and you use the `find` command to search for specific cards. 
 If only 1 card matches your search query, and you use the `review` command, only that 1 card will be reviewed.
-To review all the 10 cards in the deck, you can use the `list` command to display all cards in the **Card** screen
-again before using the `review` command.
+To review all the 10 cards in the deck, you can use the `list` command to display all cards in the *Card* mode
+again before using the `review` command.)
+* You should not be able to maximize the review window.
 
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Review Mode Features
 <div markdown="block" class="alert alert-info">
@@ -694,13 +711,13 @@ Outcome Expected:
 1. Type `f` into the command box and enter. <br>
 ![Type Flip Command](images/flipCommandStep2.png)
 
-1. The result after flip command has been executed. The Answer to the question can now be seen. <br>
+1. The result after flip command has been executed. The answer to the question can now be seen. <br>
 ![Result of Flip Command](images/flipCommandStep3.png)
 
 1. Type `f` into the command box again and enter to flip the card again. <br>
 ![Type Flip Command](images/flipCommandStep4.png)
 
-1. The result after flip command has been executed. The Question is now visible instead of the answer. <br>
+1. The result after flip command has been executed. The question is now visible instead of the answer. <br>
 ![Result of Flip Command](images/flipCommandStep5.png)
 
 <div markdown="block" class="alert alert-warning">
@@ -775,9 +792,9 @@ Examples:
 * `w` returns next card in deck if any.
 
 Outcome Expected: <br>
-1. Initial view of flashcard that has been flipped. <br>
+1. Initial view of flashcard that has been flipped.
 ![Intitial View](images/wrongCommandStep1.png)
-
+<br><br>
 1. Type `w` into the command box and enter to mark the flashcard as wrong. <br>
 ![Type Wrong Command](images/wrongCommandStep2.png)
 
@@ -817,22 +834,22 @@ flip back to the answer again before they can mark the flashcard as wrong.
 
 ### End current review session: `endReview`
 
-Ends the current review session and returns you to the **Card Mode** that the review session started from.
+Ends the current review session and returns you to the *Card* Mode that the review session started from.
 
 Format: `endReview`
 
 Outcome Expected: <br>
 1. User has reached the end of the review session and entered the `endReview` command. <br>
-![End of Review Window](images/UG_EndOfReview.png)
+![End of Review Window](images/UG_ReviewStatistics.png)
 
-1. Review Window closes, and you are returned to the **Card Mode** you started the review session from. <br>
+1. Review Window closes, and you are returned to the *Card Mode* you started the review session from. <br>
 ![Return to Main Window](images/UG_ReturnToCardMode.png)
 
 <div markdown="block" class="alert alert-warning">
 
 :warning: Things to note:
 
-* `endReview` can only be activated from the Review Window to return to the **Card Mode** you started the review session from.
+* `endReview` can only be activated from the Review Window to return to the *Card* Mode you started the review session from.
 * No additional inputs should be added behind the `endReview` command.
 
 </div>
@@ -846,75 +863,61 @@ At the end of a review session, FlashNotes will calculate your score for the ses
 As shown in the above image, the Review Window will display the following information:
  * The **total number of questions** you undertook in the review session.
  * The **number of questions marked as correct during your first attempt** at the question.
- * The calculated **percentage of questions answered correctly on your first attempt** rounded to 1 decimal place.
+ * The calculated **percentage of questions answered correctly on your first attempt**, a numeric value between 0 and 100, rounded to 1 decimal place.
 
 Of the three types of information, only the calculated percentage will be saved by FlashNotes. This is so that you can track your revision progress for any deck that you conduct a review session in.
 
 To view the statistics of your last review session for any deck, simply navigate back to the **Main Mode** and look under the Deck's name as indicated in the image below.
 
-![Review Statistics In Home Mode](images/UG_ReviewStatisticsInHome.png)
+![Review Statistics In Main Mode](images/UG_ReviewStatisticsInHome.png)
 
 <div markdown="block" class="alert alert-warning">
 
 :warning: Things to note:
 
 * FlashNotes will calculate and save your review statistics only if you have marked all the questions in the review session as correct. Exiting or ending the review session early will not generate or save the result statistics of the incomplete review session.
-* Regarding the review statistics of any review session started after the usage of the `list` command in **Main Mode** (or in other words: any review sessions started with all the cards in FlashNotes), the review statistics for such review sessions will still be generated and displayed, but it will not be saved by FlashNotes.
+* Regarding the review statistics of any review session started after the usage of the `listAll` command in **Main Mode** (or in other words: any review sessions started with all the cards in FlashNotes), the review statistics for such review sessions will still be generated and displayed, but it will not be saved by FlashNotes.
 
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## FAQ
 
-<details>
-<summary>How do I transfer my data to another Computer?</summary>
+How do I transfer my data to another Computer?
 <br>
-Install the app in the other computer and overwrite the empty data file it creates with the file that contains the 
+Install the app in the other computer and overwrite the data file with the file that contains the 
 data of your previous FlashNotes home folder.
 <br><br>
-</details>
-<br>
 
-<details>
-<summary>What should I do if I have problems launching the application?</summary>
+What should I do if I have problems launching the application?
 <br>
 Ensure that Java 11 has been installed on your computer, and that you have the most recent version of the application.
 <br><br>
-</details>
-<br>
 
-<details>
-<summary>When I exit the program, will all my new flashcards and updates be saved?</summary>
+When I exit the program, will all my new flashcards and updates be saved?
 <br>
 Yes! Whatever changes that have been made while the application was running will be saved in the data folder. To 
 ensure none of your data is lost, do not delete the data folder.
 <br><br>
-</details>
-<br>
 
-<details>
-<summary>Is it possible to restore a deck that I just deleted?</summary>
+Is it possible to restore a deck that I just deleted?
 <br>
 Sorry but no. There is no such functionality at this point in time.
 <br><br>
-</details>
 
-<details>
-<summary>What should I do when I get a 'Java Quit unexpectedly' error. (For Mac Users)</summary>
+What should I do when I get a 'Java Quit unexpectedly' error. (For Mac Users)
 <br>
-
-![Figure 1: Mac error](images/macError.png)<br>
-
 Open System Preferences in you computer,  click on ‘Security & Privacy’ and then proceed to click on Privacy Tab and 
-the ‘Input Monitoring’ section. Enable java to monitor input from your keyboard even while using other apps as shown 
-in the image below.
-
-![Figure 2: Mac users System Preferences](images/systemPreference.png)<br>
+the ‘Input Monitoring’ section. Enable java to monitor input from your keyboard even while using other apps.
 <br><br>
-</details>
+
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Command summary
 
@@ -926,13 +929,14 @@ Action | Format, Examples
 **Open Deck** | `Format: enterDeck DECKNAME` <br> e.g., `enterDeck Default`
 **Delete Deck** | `Format: deleteDeck INDEX`<br> e.g., `deleteDeck 1`
 **Edit Deck Name** | `Format: editDeckName INDEX n/NEWDECKNAME`<br> e.g., `editDeckName 1 n/History`
-**ListAll** | `listAll`
+**List All** | `listAll`
 **Help** | `help`
 **Clear** | `clear`
 **Set Review Limit** | `setReviewLimit LIMIT` <br> e.g., `setReviewLimit 30`, `setReviewLimit all`
 **Check Review Limit** | `checkReviewLimit`
 **Exit** | `exit`
 
+<div style="page-break-after: always;"></div>
 ### Card Mode
 
 Action | Format, Examples
@@ -940,7 +944,7 @@ Action | Format, Examples
 **Add Card** | `Format: addCard q/QUESTION a/ANSWER `
 **Delete Card** | `deleteCard INDEX`<br> e.g., `deleteCard 3`
 **Edit Card** | `editCard INDEX [q/QUESTION] [a/ANSWER] [t/TAG]`<br> e.g.,`editCard 2 q/What is the real question? a/This is a real question.`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find President`
 **List** | `list`
 **Help** | `help`
 **Home** | `home`
@@ -949,6 +953,7 @@ Action | Format, Examples
 **Check Review Limit** | `checkReviewLimit`
 **Exit** | `exit`
 
+<div style="page-break-after: always;"></div>
 ### Review Mode
 
 Action | Format

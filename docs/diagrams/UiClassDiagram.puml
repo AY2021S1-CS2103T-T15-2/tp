@@ -54,7 +54,7 @@ StatusBarFooter --|> UiPart
 HelpWindow -down-|> UiPart
 ReviewWindow --|> UiPart
 
-XYZListPanel ..> Model
+XYZCard ..> Model
 UiManager -right-> Logic
 HelpWindow -[hidden]right-> ReviewWindow
 MainWindow -left-> Logic

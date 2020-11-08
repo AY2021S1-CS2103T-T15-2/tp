@@ -22,7 +22,7 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
-    private Stage primaryStage;
+    private MainWindow mainWindow;
     private Logic logic;
 
     private DeckCardListPanel deckCardListPanel;
@@ -51,11 +51,11 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
-    public DeckCardListRoot(Stage primaryStage, Logic logic) {
+    public DeckCardListRoot(MainWindow mainWindow, Logic logic) {
         super(FXML);
 
         // Set dependencies
-        this.primaryStage = primaryStage;
+        this.mainWindow = mainWindow;
         this.logic = logic;
 
         // Configure the UI
@@ -66,7 +66,7 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
     }
 
     public Stage getPrimaryStage() {
-        return primaryStage;
+        return mainWindow.getPrimaryStage();
     }
 
     private void setAccelerators() {
@@ -129,6 +129,7 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
      * Sets the default size based on {@code guiSettings}.
      */
     private void setWindowDefaultSize(GuiSettings guiSettings) {
+        Stage primaryStage = mainWindow.getPrimaryStage();
         primaryStage.setHeight(guiSettings.getWindowHeight());
         primaryStage.setWidth(guiSettings.getWindowWidth());
         if (guiSettings.getWindowCoordinates() != null) {
@@ -150,7 +151,7 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
     }
 
     void show() {
-        primaryStage.show();
+        mainWindow.getPrimaryStage().show();
     }
 
     /**
@@ -158,6 +159,7 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
      */
     @FXML
     public void handleExit() {
+        Stage primaryStage = getPrimaryStage();
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
@@ -170,7 +172,7 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
     }
 
     /**
-     * Executes the command and returns the result.
+     * Executes the valid command to Deck Mode and returns the result.
      *
      * @see seedu.flashnotes.logic.Logic#execute(String)
      */
@@ -187,21 +189,14 @@ public class DeckCardListRoot extends UiPart<Region> implements RootNode {
                 handleExit();
             }
 
-            if (commandResult.isHome()) {
-                throw new CommandException("Already in the Home Screen!");
-            }
             if (commandResult.isDeck()) {
+                Stage primaryStage = this.mainWindow.getPrimaryStage();
                 GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                         (int) primaryStage.getX(), (int) primaryStage.getY());
                 logic.setGuiSettings(guiSettings);
-                RootNode rootNode = new FlashcardListRoot(primaryStage, logic);
+                RootNode rootNode = new FlashcardListRoot(mainWindow, logic);
 
-                Region root = rootNode.getFxmlLoader().getRoot();
-                primaryStage.getScene().setRoot(root);
-                primaryStage.show();
-
-                rootNode.fillInnerParts();
-                rootNode.setFeedbackToUser(commandResult.getFeedbackToUser());
+                mainWindow.setRootNode(rootNode, commandResult);
 
             }
             logger.info("Result: " + commandResult.getFeedbackToUser());

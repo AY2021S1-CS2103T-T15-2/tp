@@ -97,7 +97,7 @@ public class IndividualFlashcard extends UiPart<Region> {
      * Flips the flashcard to show the answer/question
      */
     public void flipFlashcard() {
-        if (flashcardToDisplay.getIsFlipped()) {
+        if (isCardFlipped()) {
             showAnswer();
         } else {
             showQuestion();
@@ -141,7 +141,7 @@ public class IndividualFlashcard extends UiPart<Region> {
             this.count += 1;
         } else {
             Flashcard incorrectFlashcard = flashcardsToReview.get(this.index);
-            this.flashcardsToReview = logic.addFlashcardToReview(incorrectFlashcard);
+            this.flashcardsToReview = logic.getModifiedFlashcardsToReview();
         }
         // Check if index is still within first run
         if (this.index < numOfFlashcards) {

@@ -8,7 +8,6 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import seedu.flashnotes.commons.core.GuiSettings;
 import seedu.flashnotes.commons.core.LogsCenter;
 import seedu.flashnotes.logic.Logic;
 import seedu.flashnotes.logic.commands.CommandResult;
@@ -31,7 +30,7 @@ public class ReviewWindow extends UiPart<Stage> {
     private HelpWindow helpWindow;
     private IndividualFlashcard individualFlashcard;
 
-    private Stage primaryStage;
+    private MainWindow mainWindow;
 
     // Use a boolean to check status of review session
     private boolean isComplete;
@@ -54,11 +53,11 @@ public class ReviewWindow extends UiPart<Stage> {
     /**
      * Creates a new ReviewWindow.
      */
-    public ReviewWindow(Logic logic, Stage primaryStage) {
+    public ReviewWindow(Logic logic, MainWindow mainWindow) {
         super(FXML, new Stage());
         this.logic = logic;
         this.helpWindow = new HelpWindow();
-        this.primaryStage = primaryStage;
+        this.mainWindow = mainWindow;
 
         this.commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -164,7 +163,6 @@ public class ReviewWindow extends UiPart<Stage> {
      */
     public void handleNextCard(int isCorrect) {
         assert(isCorrect > 0);
-        logic.resetFlipOfFlashcardBeingReviewed();
         String result = individualFlashcard.handleNextCard(isCorrect);
         if (result.equals("exit")) {
             displayStatistics();
@@ -190,23 +188,17 @@ public class ReviewWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleExit() {
-        GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY());
-        logic.setGuiSettings(guiSettings);
         // Turn off review mode in logic
         logic.setIsReviewModeFalse();
-
         // Hide help window
         helpWindow.hide();
-
-        // Return to FlashcardListRoot
-        RootNode rootNode = new FlashcardListRoot(primaryStage, logic);
-
+        RootNode rootNode = new FlashcardListRoot(mainWindow, logic);
+        CommandResult commandResult = new CommandResult("Closed Review Window");
         Region root = rootNode.getFxmlLoader().getRoot();
-        primaryStage.getScene().setRoot(root);
-        primaryStage.show();
+        mainWindow.getPrimaryStage().getScene().setRoot(root);
 
         rootNode.fillInnerParts();
+        rootNode.setFeedbackToUser(commandResult.getFeedbackToUser());
     }
 
     /**

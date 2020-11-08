@@ -46,7 +46,7 @@ public interface Logic {
     /**
      * Returns the modified list of flashcards to be reviewed
      */
-    ObservableList<Flashcard> addFlashcardToReview(Flashcard flashcard);
+    ObservableList<Flashcard> getModifiedFlashcardsToReview();
 
     /** Reset flashcard being reviewed back to false */
     public void resetFlipOfFlashcardBeingReviewed();

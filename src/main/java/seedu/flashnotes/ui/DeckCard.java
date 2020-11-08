@@ -6,7 +6,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.flashnotes.model.deck.Deck;
 
-
+/**
+ * An UI component that displays information of a {@code Deck}.
+ */
 public class DeckCard extends UiPart<Region> {
     private static final String FXML = "DeckCard.fxml";
 
@@ -37,7 +39,6 @@ public class DeckCard extends UiPart<Region> {
     private Label id;
     @FXML
     private Label resultStatistics;
-    //todo update result statistics in the future -> suggested approach is to
 
     /**
      * Creates a {@code cardDeck} with the given {@code deckName} and index to display.

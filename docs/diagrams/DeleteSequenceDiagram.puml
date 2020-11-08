@@ -4,8 +4,8 @@
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":FlashNotesParser" as FlashNotesParser LOGIC_COLOR
-participant ":DeleteCommandParser" as DeleteCommandParser LOGIC_COLOR
-participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
+participant ":DeleteDeckCommandParser" as DeleteDeckCommandParser LOGIC_COLOR
+participant "d:DeleteDeckCommand" as DeleteDeckCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -13,56 +13,56 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("delete nameOfDeck")
+[-> LogicManager : execute("deleteDeck 1")
 activate LogicManager
 
-LogicManager -> FlashNotesParser : parseCommand("delete nameOfDeck")
+LogicManager -> FlashNotesParser : parseCommand("deleteDeck 1")
 activate FlashNotesParser
 
-create DeleteCommandParser
-FlashNotesParser -> DeleteCommandParser
-activate DeleteCommandParser
+create DeleteDeckCommandParser
+FlashNotesParser -> DeleteDeckCommandParser
+activate DeleteDeckCommandParser
 
-DeleteCommandParser --> FlashNotesParser
-deactivate DeleteCommandParser
+DeleteDeckCommandParser --> FlashNotesParser
+deactivate DeleteDeckCommandParser
 
-FlashNotesParser -> DeleteCommandParser : parse("nameOfDeck")
-activate DeleteCommandParser
+FlashNotesParser -> DeleteDeckCommandParser : parse("1")
+activate DeleteDeckCommandParser
 
-create DeleteCommand
-DeleteCommandParser -> DeleteCommand
-activate DeleteCommand
+create DeleteDeckCommand
+DeleteDeckCommandParser -> DeleteDeckCommand
+activate DeleteDeckCommand
 
-DeleteCommand --> DeleteCommandParser : d
-deactivate DeleteCommand
+DeleteDeckCommand --> DeleteDeckCommandParser : d
+deactivate DeleteDeckCommand
 
-DeleteCommandParser --> FlashNotesParser : d
-deactivate DeleteCommandParser
+DeleteDeckCommandParser --> FlashNotesParser : d
+deactivate DeleteDeckCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
-DeleteCommandParser -[hidden]-> FlashNotesParser
-destroy DeleteCommandParser
+DeleteDeckCommandParser -[hidden]-> FlashNotesParser
+destroy DeleteDeckCommandParser
 
 FlashNotesParser --> LogicManager : d
 deactivate FlashNotesParser
 
-LogicManager -> DeleteCommand : execute()
-activate DeleteCommand
+LogicManager -> DeleteDeckCommand : execute()
+activate DeleteDeckCommand
 
-DeleteCommand -> Model : deleteDeck("nameOfDeck")
+DeleteDeckCommand -> Model : deleteDeck("1")
 activate Model
 
-Model --> DeleteCommand
+Model --> DeleteDeckCommand
 deactivate Model
 
 create CommandResult
-DeleteCommand -> CommandResult
+DeleteDeckCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeleteCommand
+CommandResult --> DeleteDeckCommand
 deactivate CommandResult
 
-DeleteCommand --> LogicManager : result
-deactivate DeleteCommand
+DeleteDeckCommand --> LogicManager : result
+deactivate DeleteDeckCommand
 
 [<--LogicManager
 deactivate LogicManager

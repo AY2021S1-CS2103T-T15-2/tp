@@ -75,6 +75,7 @@ Given below are my contributions to the project.
     * Wrote the entirety of the FAQ section.
   * Developer Guide:
     * Update documentation in "Logic" section.
+    * Update Delete Sequence UML diagram and Logic Class UML diagram.
     * Wrote documentation for implementation of the features: flipping flashcard in review mode and marking flashcards 
     as correct or wrong before proceeding to review the next flashcard.
     * Drew a sequence diagram for `f` command execution, and an activity diagram for `c` or `w` command execution in 

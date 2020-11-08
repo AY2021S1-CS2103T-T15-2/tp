@@ -11,9 +11,8 @@ if () then ([correct answer])
     :User marks answer as correct;
     :Flashcard is removed from the list of flashcards to review;
 else ([else])
-    :Throws CommandException;
-    :Displays error message
-    in Result Display;
+    :User marks answer as wrong;
+    :Flashcard is added back into the list of flashcards to review;
 
 endif
 

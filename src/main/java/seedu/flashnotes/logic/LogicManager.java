@@ -78,8 +78,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableList<Flashcard> addFlashcardToReview(Flashcard flashcard) {
-        return model.addFlashcardToReview(flashcard);
+    public ObservableList<Flashcard> getModifiedFlashcardsToReview() {
+        return model.getModifiedFlashcardsToReview();
     }
 
     @Override

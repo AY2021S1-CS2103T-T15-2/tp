@@ -150,8 +150,11 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered flashcard list */
     ObservableList<Flashcard> getFlashcardsToReview();
 
+    /** Adds flashcard to list of flashcards to be reviewed */
+    public void addFlashcardToReview();
+
     /** Returns the modified list of flashcards to be reviewed */
-    ObservableList<Flashcard> addFlashcardToReview(Flashcard flashcard);
+    ObservableList<Flashcard> getModifiedFlashcardsToReview();
 
     /** Updates the flashcard being reviewed in the review mode */
     public void updateFlashcardBeingReviewed(int result);

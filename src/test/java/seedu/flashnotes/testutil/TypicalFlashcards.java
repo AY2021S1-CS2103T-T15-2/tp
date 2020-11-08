@@ -70,12 +70,17 @@ public class TypicalFlashcards {
         return ab;
     }
 
-    private static List<Deck> getTypicalDecks() {
+    public static List<Deck> getTypicalDecks() {
         Deck friends = new Deck ("friends");
+        friends.setResultStatistics("3.3");
         Deck oweMoney = new Deck ("owesMoney");
+        oweMoney.setResultStatistics("-1.0");
         Deck time = new Deck("Time");
-        Deck place = new Deck("place");
+        time.setResultStatistics("0.0");
+        Deck place = new Deck("Place");
+        place.setResultStatistics("100.0");
         Deck math = new Deck("Math");
+        math.setResultStatistics("75.0");
         return new ArrayList<>(Arrays.asList(friends, oweMoney, time, place, math));
     }
 

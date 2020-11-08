@@ -106,9 +106,10 @@ public class ModelManagerTest {
         Model model = new ModelManager(getTypicalFlashNotes(), new UserPrefs());
         Model expectedModel = new ModelManager(model.getFlashNotes(), new UserPrefs());
         int size = model.getFlashcardsToReview().size();
-        assertEquals(size + 1, expectedModel.addFlashcardToReview(WHAT).size());
+        expectedModel.addFlashcardToReview();
+        assertEquals(size + 1, expectedModel.getModifiedFlashcardsToReview().size());
         Flashcard newFlashcard = expectedModel.getFlashcardsToReview().get(size);
-        assertEquals(WHAT, newFlashcard);
+        assertEquals(model.getFlashcardBeingReviewed(), newFlashcard);
     }
 
     @Test

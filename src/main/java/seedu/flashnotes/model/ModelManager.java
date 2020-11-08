@@ -307,16 +307,21 @@ public class ModelManager implements Model {
     }
 
     /**
-     * Returns the modified list of flashcards to be reviewed after adding the extra flashcard
-     * @param flashcard
+     * Adds flashcard to list of flashcards being reviewed.
      * @return
      */
     @Override
-    public ObservableList<Flashcard> addFlashcardToReview(Flashcard flashcard) {
+    public void addFlashcardToReview() {
+        Flashcard flashcard = this.flashcardsToReview.get(flashcardBeingReviewed);
         ObservableList<Flashcard> flashcardsToReviewList = FXCollections.observableArrayList(
                 this.flashcardsToReview);
         flashcardsToReviewList.add(flashcard);
         this.flashcardsToReview = new FilteredList<>(flashcardsToReviewList);
+    }
+
+    /** Returns the modified list of flashcards to be reviewed */
+    @Override
+    public ObservableList<Flashcard> getModifiedFlashcardsToReview() {
         return flashcardsToReview;
     }
 

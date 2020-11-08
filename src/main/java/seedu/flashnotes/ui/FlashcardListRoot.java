@@ -23,7 +23,7 @@ public class FlashcardListRoot extends UiPart<Region> implements RootNode {
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
-    private final Stage primaryStage;
+    private final MainWindow mainWindow;
     private final Logic logic;
 
     // Independent Ui parts residing in this Ui container
@@ -50,15 +50,15 @@ public class FlashcardListRoot extends UiPart<Region> implements RootNode {
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
-    public FlashcardListRoot(Stage primaryStage, Logic logic) {
+    public FlashcardListRoot(MainWindow mainWindow, Logic logic) {
         super(FXML);
 
-        this.primaryStage = primaryStage;
+        this.mainWindow = mainWindow;
         this.logic = logic;
         setAccelerators();
 
         helpWindow = new HelpWindow();
-        reviewWindow = new ReviewWindow(logic, primaryStage);
+        reviewWindow = new ReviewWindow(logic, mainWindow);
     }
 
     private void setAccelerators() {
@@ -145,6 +145,7 @@ public class FlashcardListRoot extends UiPart<Region> implements RootNode {
      */
     @FXML
     public void handleExit() {
+        Stage primaryStage = mainWindow.getPrimaryStage();
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
@@ -163,7 +164,7 @@ public class FlashcardListRoot extends UiPart<Region> implements RootNode {
     /**
      * Restores functionality for users to enter commands in the command box temporarily.
      */
-    private void enableCommandBox() {
+    public void enableCommandBox() {
         this.commandBox.enable();
     }
 
@@ -171,7 +172,7 @@ public class FlashcardListRoot extends UiPart<Region> implements RootNode {
         return flashcardListPanel;
     }
     /**
-     * Executes the command and returns the result.
+     * Executes the valid commands in card-mode and returns the result.
      *
      * @see seedu.flashnotes.logic.Logic#execute(String)
      */
@@ -194,22 +195,15 @@ public class FlashcardListRoot extends UiPart<Region> implements RootNode {
             }
 
             if (commandResult.isHome()) {
+                Stage primaryStage = mainWindow.getPrimaryStage();
+
                 GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                         (int) primaryStage.getX(), (int) primaryStage.getY());
                 logic.setGuiSettings(guiSettings);
 
-                RootNode rootNode = new DeckCardListRoot(primaryStage, logic);
+                RootNode rootNode = new DeckCardListRoot(mainWindow, logic);
 
-                Region root = rootNode.getFxmlLoader().getRoot();
-                primaryStage.getScene().setRoot(root);
-                primaryStage.show();
-
-                rootNode.fillInnerParts();
-                rootNode.setFeedbackToUser(commandResult.getFeedbackToUser());
-            }
-            if (commandResult.isDeck()) {
-                throw new CommandException("Already in the Deck Screen! Navigate back to Home screen first!");
-                //rationale is that you need to access the decks from the home screen (to be discussed)
+                mainWindow.setRootNode(rootNode, commandResult);
             }
 
             return commandResult;

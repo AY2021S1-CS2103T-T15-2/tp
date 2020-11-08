@@ -1,0 +1,15 @@
+{
+  "flashcards": [ {
+    "question": "What is a valid Deck?",
+    "answer": "One with a name matching an existing tag.",
+    "tag": "valid tag"
+  }, {
+    "question": "valid question",
+    "answer": "valid answer",
+    "tag": "valid tag"
+  } ],
+  "decks": [ {
+    "deckName": "",
+    "resultStatistic": ""
+  } ]
+}
