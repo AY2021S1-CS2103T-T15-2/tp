@@ -6,11 +6,11 @@ title: Foong Siqi's Project Portfolio Page
 ## Project: FlashNotes
 
 FlashNotes is a desktop flashcards application used for creating and accessing flashcards for studying. The user 
-interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 12 kLoC.
 
 Given below are my contributions to the project.
 
-* **New Feature 1**: Setting up of review mode
+* **New Feature 1**: Setting up of review mode (Pull request: [#92](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/92))
     * What it does: This feature processes the list of flashcards to be reviewed when the user calls the `review` command.
     It then passes this list of flashcards to the UI component and opens a new JavaFX window for users to review their
     flashcards.
@@ -19,33 +19,29 @@ Given below are my contributions to the project.
     the most, so it is a significant feature.
     * Highlights: This enhancement required the in-depth analysis of the UI and Model component. The implementation was
     also challenging as it involved using many methods/functions from JavaFX which is a relatively new framework for me.
-    Another highlight is the disabling of the command box of the main window when the review window is opened, which is 
-    new kind of feature I have never implemented before and also a very useful one in terms of user experience and eliminating
-    bugs.
-    
-* **New Feature 2**: Implementation of review limit
+
+* **New Feature 2**: Implementation of review limit (Pull request: [#168](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/168))
     * What it does: Saving and retrieving of a maximum number of cards that the user wants to review.
     * Justification: This feature is important as it gives users flexibility and a choice to set preferences. This is the
     first of many other potential settings we can let users customize, for them to personalize their flashcard making
     and reviewing experience.
     * Highlights: I implemented the review limit in such a way that it can accept a range of integer inputs from 1 to 
-    `Integer.MAX_VALUE` and also valid string inputs such as `all`. I also throw relevant error messages that tell users
-    why exactly their input doesn't fulfil the requirements of the command.
-    
-* **New Feature 3**: Implementation of character limit for question, answer and deck names
+    `Integer.MAX_VALUE` and also valid string inputs such as `all`. 
+
+* **New Feature 3**: Implementation of character limit for question, answer and deck names (Pull request: [#172](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/172))
     * What it does: Limits the number of characters that users can input for question, answer and deck names to 140 
     characters.
     * Justification: This feature is important as it affects some of the UI decisions we made. Some examples include
     how to handle overflow in the content we want to display, and the sizing of the different windows.
 
-* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&tabAuthor=foongsq&tabRepo=AY2021S1-CS2103T-T15-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
+<div style="page-break-after: always;"></div>
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=foongsq&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
 * **Project management**:
     * Used Github Issues Tracker to manage and assign tasks to team mates.
     * Facilitated weekly team meetings about implementation details, deliverables,
     and deadlines.
     * Brainstorm ideas for the different features (How we intend our application to behave, design details etc.)
-    
 
 * **Enhancements to existing features**:
     * Refactored code for `Name` class in the original AddressBook3 application
@@ -53,7 +49,7 @@ Given below are my contributions to the project.
     * Standardized and updated some of the error messages to improve user experience.
     * Organized code and fixed bugs in Parsers, to ensure that the correct commands are allowed in the correct modes.
     * Wrote new testcases for major Parser class `FlashNotesParser`, and also for the new commands I implemented. 
-    (Pull request: [1](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/138))
+    (Pull request: [#138](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/138))
 
 * **Documentation**:
   * User Guide:
@@ -70,7 +66,6 @@ Given below are my contributions to the project.
     * Drew sequence diagram for `review` command execution, activity diagram for `setReviewLimit` command execution, 
     class diagram for UI and `CommandResult` classes, and activity diagram for a typical workflow in the review mode.
     * Standardized formatting and fixed typos that could cause confusion for readers.
-    
 
 * **Community**:
-    * Reviewed team mates' pull requests (example: [1](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/57))
+    * Reviewed team mates' pull requests (Pull Request: [#57](https://github.com/AY2021S1-CS2103T-T15-2/tp/pull/57))
